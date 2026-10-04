@@ -14,6 +14,16 @@ return new class extends Migration
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('location');
+            $table->date('online_since');
+            $table->decimal('output');
+            $table->boolean('energy_storage');
+            $table->boolean('agripv');
+            $table->integer('parcels');
+            $table->foreignId('user_id')->constrained('users');
+
         });
     }
 

@@ -9,4 +9,12 @@ class Plant extends Model
 {
     /** @use HasFactory<\Database\Factories\PlantFactory> */
     use HasFactory;
+
+    /**
+     * The user that owns the plant.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

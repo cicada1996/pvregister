@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * The plants that belong to the user.
+     */
+    public function plants()
+    {
+        return $this->hasMany(Plant::class);
+    }
 }
