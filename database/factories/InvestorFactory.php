@@ -18,7 +18,12 @@ class InvestorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'phone' => $this->faker->phoneNumber(),
+            'address' => $this->faker->streetAddress(),
+            'city' => $this->faker->city(),
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }
