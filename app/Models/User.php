@@ -53,4 +53,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Plant::class);
     }
+
+    /**
+     * The investors that belong to the user.
+     */
+    public function investors()
+    {
+        return $this->hasMany(Investor::class);
+    }
 }

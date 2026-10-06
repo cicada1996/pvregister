@@ -9,4 +9,12 @@ class Investor extends Model
 {
     /** @use HasFactory<\Database\Factories\InvestorFactory> */
     use HasFactory;
+
+    /**
+     * The user that owns the investor.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);   
+    }
 }
