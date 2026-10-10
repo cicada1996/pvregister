@@ -35,5 +35,11 @@ class DatabaseSeeder extends Seeder
         foreach ($investors as $investor) {
             $investor->plants()->attach($plants->random()->id, ['percentage' => 12.50]);
         }
+
+        $adminUser = User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'is_admin' => true,
+        ]);
     }
 }
