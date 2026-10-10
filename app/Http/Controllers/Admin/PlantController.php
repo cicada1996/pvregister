@@ -30,7 +30,24 @@ class PlantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'location' => ['required', 'string', 'max:255'],
+            'online_since' => ['required', 'date'],
+            'output' => ['required', 'numeric', 'min:0'],
+            'parcels' => ['required', 'integer', 'min:1'],
+            'description' => ['nullable', 'string'],
+            'energy_storage' => ['nullable', 'boolean'],
+            'agripv' => ['nullable', 'boolean']
+        ]);
+       
+        $validated['energy_storage'] = $request->boolean('energy_storage');
+        
+        $validated['agripv'] = $request->boolean('agripv');
+
+        auth()->user()->plants()->create($validated);
+
+        return redirect()->route('admin.plants.index');
     }
 
     /**
