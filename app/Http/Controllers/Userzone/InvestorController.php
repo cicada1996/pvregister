@@ -22,7 +22,7 @@ class InvestorController extends Controller
      */
     public function create()
     {
-        //
+        return view('userzone.investors.create'); 
     }
 
     /**

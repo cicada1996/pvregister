@@ -11,6 +11,13 @@
                 <div class="p-6 text-gray-900">
                     @foreach ($investors as $investor)
                         <h2>{{ $investor->name }}</h2>
+                        <ul>
+                            @forelse ($investor->plants as $plant)
+                                <li>{{ $plant->name }} - {{ $plant->pivot->percentage }}%</li>
+                            @empty
+                                <li>No plants found.</li>
+                            @endforelse
+                        </ul>  
                     @endforeach
                 </div>
             </div>
