@@ -13,7 +13,8 @@ class InvestorController extends Controller
      */
     public function index()
     {
-        //
+        $investors = auth()->user()->investors;
+        return view('userzone.investors.index', compact('investors'));  
     }
 
     /**
