@@ -5,6 +5,7 @@ use App\Http\Controllers\Userzone\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Userzone\InvestorController;
+use App\Http\Controllers\Admin\PlantController;
 
 /*
  * Public Website routes
@@ -32,4 +33,10 @@ Route::resource('investors', InvestorController::class)->only(['create', 'store'
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::prefix('admin')
+        ->name('admin.')
+        ->middleware('admin')
+        ->group(function () {
+            Route::resource('plants', PlantController::class);
+        });
 });
