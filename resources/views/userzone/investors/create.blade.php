@@ -26,6 +26,13 @@
             <x-breeze.input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- Phone -->
+        <div class="mt-4">
+            <x-breeze.input-label for="phone" value="Phone" />
+            <x-breeze.text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" />
+            <x-breeze.input-error :messages="$errors->get('phone')" class="mt-2" />
+        </div>
+
         <!-- Address -->
         <div class="mt-4">
             <x-breeze.input-label for="address" value="Address" />
@@ -40,9 +47,13 @@
             <x-breeze.input-error :messages="$errors->get('city')" class="mt-2" />
         </div>
 
-        
-    <button type="submit">Save</button>
-</form>
+             <div class="mt-4">
+         <x-breeze.primary-button class="ms-3">
+                Save
+            </x-breeze.primary-button>
+            </div>
+        </div>
+    </form>
                 </div>
             </div>
         </div>

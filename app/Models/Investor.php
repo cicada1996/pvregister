@@ -13,6 +13,7 @@ class Investor extends Model
     /**
      * The user that owns the investor.
      */
+    protected $guarded = [];
     public function user()
     {
         return $this->belongsTo(User::class);   
@@ -25,4 +26,5 @@ class Investor extends Model
     {
         return $this->belongsToMany(Plant::class)->withPivot('percentage');
     }
+
 }

@@ -30,7 +30,18 @@ class InvestorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          $validated = $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['unique:investors,email', 'required', 'string', 'email', 'max:255'],
+        'phone' => ['nullable', 'string', 'max:255'],
+        'address' => ['nullable', 'string', 'max:255'],
+        'city' => ['nullable', 'string', 'max:255'],
+
+    ]);
+
+    auth()->user()->investors()->create($validated);
+
+    return redirect()->route('investors.index');
     }
     /**
      * Show the form for editing the specified resource.

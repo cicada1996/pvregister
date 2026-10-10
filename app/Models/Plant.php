@@ -13,6 +13,7 @@ class Plant extends Model
     /**
      * The user that owns the plant.
      */
+    protected $guarded = [];
     public function user()
     {
         return $this->belongsTo(User::class);
