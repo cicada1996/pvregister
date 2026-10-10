@@ -17,4 +17,12 @@ class Plant extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * The investors that belong to the plant.
+     */
+    public function investors()
+    {
+        return $this->belongsToMany(Investor::class)->withPivot('percentage');
+    }
 }
