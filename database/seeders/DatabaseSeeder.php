@@ -31,5 +31,9 @@ class DatabaseSeeder extends Seeder
         ->count(5)
         ->for($testUser)
         ->create();
+
+        foreach ($investors as $investor) {
+            $investor->plants()->attach($plants->random()->id, ['percentage' => 12.50]);
+        }
     }
 }
