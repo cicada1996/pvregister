@@ -22,7 +22,7 @@ class PlantController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.plants.create');
     }
 
     /**
