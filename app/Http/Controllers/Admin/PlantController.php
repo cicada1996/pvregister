@@ -13,7 +13,8 @@ class PlantController extends Controller
      */
     public function index()
     {
-        //
+        $plants = Plant::all();
+        return view('admin.plants.index', compact('plants'));
     }
 
     /**

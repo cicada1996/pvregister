@@ -15,6 +15,11 @@
                     <x-breeze.nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
 Dashboard
                     </x-breeze.nav-link>
+                    @if (auth()->user()->is_admin)
+                    <x-breeze.nav-link :href="route('admin.plants.index')" :active="request()->routeIs('admin.plants.*')">
+Admin
+                    </x-breeze.nav-link>
+                    @endif
                     <x-breeze.nav-link :href="route('investors.index')" :active="request()->routeIs('investors.index')">
 Investors
                     </x-breeze.nav-link>
@@ -73,6 +78,11 @@ Log Out
             <x-breeze.responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 Dashboard
             </x-breeze.responsive-nav-link>
+            @if (auth()->user()->is_admin)
+            <x-breeze.responsive-nav-link :href="route('admin.plants.index')" :active="request()->routeIs('admin.plants.*')">
+                Admin
+            </x-breeze.responsive-nav-link>
+            @endif
              <x-breeze.responsive-nav-link :href="route('investors.index')" :active="request()->routeIs('investors.index')">
                 Investors
             </x-breeze.responsive-nav-link>
