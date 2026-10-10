@@ -9,11 +9,10 @@ class Plant extends Model
 {
     /** @use HasFactory<\Database\Factories\PlantFactory> */
     use HasFactory;
-
+    protected $guarded = [];
     /**
      * The user that owns the plant.
      */
-    protected $guarded = [];
     public function user()
     {
         return $this->belongsTo(User::class);
