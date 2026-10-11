@@ -6,6 +6,7 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Userzone\InvestorController;
 use App\Http\Controllers\Admin\PlantController;
+use App\Http\Controllers\Userzone\AllocationController;
 
 /*
  * Public Website routes
@@ -29,6 +30,8 @@ Route::middleware('auth')->group(function () {
 
     // Todo: add your Userzone routes here
 Route::resource('investors', InvestorController::class)->only(['create', 'store', 'index', 'edit', 'update']);
+
+Route::resource('allocations', AllocationController::class)->only(['create', 'store']);
     // For the user's profile management
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
