@@ -23,6 +23,9 @@ Admin
                     <x-breeze.nav-link :href="route('investors.index')" :active="request()->routeIs('investors.index')">
 Investors
                     </x-breeze.nav-link>
+                    <x-breeze.nav-link :href="route('allocations.create')" :active="request()->routeIs('allocations.create')">
+Allocations
+                    </x-breeze.nav-link>
                 </div>
             </div>
 
@@ -86,6 +89,9 @@ Log Out
              <x-breeze.responsive-nav-link :href="route('investors.index')" :active="request()->routeIs('investors.index')">
                 Investors
             </x-breeze.responsive-nav-link>
+            <x-breeze.nav-link :href="route('allocations.create')" :active="request()->routeIs('allocations.create')">
+                Allocations
+                    </x-breeze.nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

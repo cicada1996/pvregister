@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Plant;
+
 class WelcomeController extends Controller
 {
     /**
@@ -9,6 +11,7 @@ class WelcomeController extends Controller
      */
     public function __invoke()
     {
-        return view('welcome');
+        $plants = Plant::all();
+        return view('welcome', compact('plants'));
     }
 }
